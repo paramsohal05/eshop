@@ -12,7 +12,7 @@ import { ProductType } from "../type"
 const Category = () => {
   const [loading, setLoading]=useState(false)
   const [products, setProducts]=useState([])
-  const [formatId, setFormatId]=useState<string | null>('')
+  const [formatId, setFormatId]=useState<string| null>('')
 
   const {id}=useParams()
 
