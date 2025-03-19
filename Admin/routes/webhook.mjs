@@ -4,7 +4,7 @@ import Stripe from "stripe";
 const webhookRouter=Router()
 
 const stripeSecretKey=process.env.STRIPE_SECRET_KEY
-const endpointSecret="whsec_dfccce976bc674c33b92281ff953924a3ecd8a0b83b9b22908d1ff80fbff5742";
+const endpointSecret="whsec_HYQ2f1bq9BJNOlkkzQtpk1g1KHJvNU5c";
 
 const ordersData=[];
 
