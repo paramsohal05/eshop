@@ -4,7 +4,7 @@ import { RotatingLines } from "react-loader-spinner"
 const Loader = () => {
   return (
     <div className='bg-black/80 flex flex-col items-center
-    justify-center gap-2 absolute left-0 right-0 top-0  z-20 h-screen'>
+    justify-center gap-2 fixed left-0 right-0 top-0  z-20 h-screen no-doc-scroll'>
       <RotatingLines
           visible={true}
           strokeWidth="4"

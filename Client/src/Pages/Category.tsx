@@ -12,6 +12,7 @@ import { ProductType } from "../type"
 const Category = () => {
   const [loading, setLoading]=useState(false)
   const [products, setProducts]=useState([])
+  const [formatId, setFormatId]=useState<string | null>('')
 
   const {id}=useParams()
 
@@ -33,23 +34,33 @@ const Category = () => {
     fetchData()
   },[id])
 
+  useEffect(()=>{
+    if(id!==undefined){
+      const formatId=async(id:string)=>{
+        const formattedid=await id
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .replace(/(^\w|\s\w)/g, (match:any)=>match.toUpperCase())
+         setFormatId(formattedid)
+       
+       }
+       formatId(id)
+    }
+    
   
+  },[id])
  
-   const formatId=(id:string)=>{
-    return id
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/(^\w|\s\w)/g, (match:any)=>match.toUpperCase())
-   }
-
+  
    useEffect(()=>{
-    document.title=`eShop-${formatId(id)}`;
+    document.title=`eShop-${formatId}`;
   },[products])
+
+  
 
   return (
     <div className="">
       {
         loading? <Loader/>:<Container>
-          <h2 className="text-center text-3xl font-bold mb-8">{formatId(id)}</h2>
+          <h2 className="text-center text-3xl font-bold mb-8">{formatId}</h2>
           <div className="flex justify-center md:justify-start gap-8">
             <CategoryFilters id={id}/>
             <div className="grid grid-cols-1 items-center justify-center sm:justify-between sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
