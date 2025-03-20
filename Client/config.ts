@@ -13,6 +13,7 @@ const checkConfig=(server:string):Config | {}=>{
     case "local":
       config={
         baseUrl:"http://localhost:8000"
+        
       }
       break;
       default:

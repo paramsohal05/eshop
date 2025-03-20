@@ -43,7 +43,7 @@ checkoutRouter.post("/checkout", async(req, res)=>{
       success_url:'https://eshop-n5zy.vercel.app/success?session_id={CHECKOUT_SESSION_ID}',
       cancel_url:'https://eshop-n5zy.vercel.app/cancel',
       metadata:{
-        email,
+        email, 
         userId
       },
     })
