@@ -17,9 +17,12 @@ const app=express();
 const httpsPort = Number(process.env.HTTPSPORT) || 8000;
 
 app.use(cors({
-    origin:"https://eshop-n5zy.vercel.app", 
-    methods:['GET', 'POST']
-
+    
+    origin: 'https://eshop-n5zy.vercel.app', // use your actual domain name (or localhost), using * is not recommended
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Origin', 'Accept'],
+    credentials: true
+    
 }))
 
 app.use(express.json())
