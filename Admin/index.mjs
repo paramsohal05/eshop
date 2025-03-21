@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config'
+import cors from 'cors'
 import {fileURLToPath} from 'url';
 import path from 'path';
 import blogRouter from './routes/blogs.mjs';
@@ -16,6 +17,11 @@ const app=express();
 const httpsPort = Number(process.env.HTTPSPORT) || 8000;
 
 app.use(express.json())
+
+app.use(cors({
+    origin:'*'
+
+}))
 
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
