@@ -17,9 +17,9 @@ const app=express();
 const httpsPort = Number(process.env.HTTPSPORT) || 8000;
 
 app.use(cors({
-    origin:["https://eshop-n5zy.vercel.app'", ""],
+    origin:"https://eshop-n5zy.vercel.app'", 
     methods:['GET', 'POST']
-    
+
 }))
 
 app.use(express.json())
