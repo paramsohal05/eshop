@@ -16,15 +16,6 @@ import webhookRouter from './routes/webhook.mjs';
 const app=express();
 const httpsPort = Number(process.env.HTTPSPORT) || 8000;
 
-app.use(cors({
-    
-    origin: 'https://eshop-n5zy.vercel.app', // use your actual domain name (or localhost), using * is not recommended
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Origin', 'Accept'],
-   
-    
-}))
-
 app.use(express.json())
 
 const __filename=fileURLToPath(import.meta.url)

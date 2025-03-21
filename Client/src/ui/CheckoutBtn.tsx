@@ -15,13 +15,13 @@ const CheckoutBtn = ({products}:{products:ProductType[]}) => {
   const handleCheckout=async()=>{
    const stripe= await stripePromise
    let headers=new Headers()
-   headers.append('Content-Type', 'application/json');
+   headers.append('Content-Type', 'text/plain');
     headers.append('Accept', 'application/json');
     headers.append('Origin','https://eshop-n5zy.vercel.app');
    const response= await fetch(`${config?.baseUrl}/checkout`, {
 
     method:'POST',
-    mode:'no-cors',
+    mode:'cors',
     headers:headers,
 
     body:JSON.stringify({
