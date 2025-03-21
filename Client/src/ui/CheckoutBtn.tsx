@@ -21,10 +21,9 @@ const CheckoutBtn = ({products}:{products:ProductType[]}) => {
    const response= await fetch(`${config?.baseUrl}/checkout`, {
 
     method:'POST',
-    credentials:'include',
-    mode:'cors',
+    mode:'no-cors',
     headers:headers,
-    
+
     body:JSON.stringify({
       items:products,
       email:currentUser?.email,

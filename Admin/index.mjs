@@ -21,7 +21,7 @@ app.use(cors({
     origin: 'https://eshop-n5zy.vercel.app', // use your actual domain name (or localhost), using * is not recommended
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'Accept'],
-    credentials: true
+   
     
 }))
 
