@@ -16,6 +16,7 @@ const CheckoutBtn = ({products}:{products:ProductType[]}) => {
   const handleCheckout=async()=>{
    const stripe= await stripePromise;
    const response= await fetch(`${config?.baseUrl}/checkout`, {
+    mode:'no-cors',
     method:'POST',
     headers:{
       'Content-Type':'application/json',
