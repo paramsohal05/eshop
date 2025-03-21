@@ -1,6 +1,5 @@
 import express from 'express';
 import 'dotenv/config'
-import cors from 'cors'
 import {fileURLToPath} from 'url';
 import path from 'path';
 import blogRouter from './routes/blogs.mjs';

@@ -3,7 +3,7 @@ import { ProductType } from '../type'
 import { store } from '../lib/store'
 import { useNavigate } from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js';
-import { config } from '../../config';
+
 
 const CheckoutBtn = ({products}:{products:ProductType[]}) => {
   const navigate=useNavigate()
@@ -13,16 +13,13 @@ const CheckoutBtn = ({products}:{products:ProductType[]}) => {
    const stripePromise=loadStripe(publishableKey)
 
   const handleCheckout=async()=>{
-   const stripe= await stripePromise
-   let headers=new Headers()
-   headers.append('Content-Type', 'text/plain');
-    headers.append('Accept', 'application/json');
-    headers.append('Origin','https://eshop-n5zy.vercel.app');
-   const response= await fetch(`${config?.baseUrl}/checkout`, {
+   const stripe= await stripePromise;
+   const response= await fetch(`/checkout`, {
 
     method:'POST',
-    mode:'cors',
-    headers:headers,
+    headers:{
+      'Content-Type':'application/json',
+    },
 
     body:JSON.stringify({
       items:products,
