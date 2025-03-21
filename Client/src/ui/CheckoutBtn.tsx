@@ -3,6 +3,7 @@ import { ProductType } from '../type'
 import { store } from '../lib/store'
 import { useNavigate } from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js';
+import { config } from '../../config';
 
 
 const CheckoutBtn = ({products}:{products:ProductType[]}) => {
@@ -14,7 +15,7 @@ const CheckoutBtn = ({products}:{products:ProductType[]}) => {
 
   const handleCheckout=async()=>{
    const stripe= await stripePromise;
-   const response= await fetch(`/checkout`, {
+   const response= await fetch(`${config?.baseUrl}/checkout`, {
     method:'POST',
     headers:{
       'Content-Type':'application/json',
